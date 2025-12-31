@@ -12,6 +12,34 @@ cd YFINANCE_Market
 python -m venv venv
 source venv/bin/activate   # On Windows: venv\Scripts\activate
 
+## 📖 API Documentation
+
+FastAPI provides interactive API docs automatically:
+
+- Swagger UI: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+- ReDoc: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
+
+Use these to explore and test endpoints directly in the browser.
+
+## 🗂️ Project Structure
+
+stock_service_project/
+├── .venv/                  # Virtual environment (auto-generated)
+│   └── ...                 # Standard venv folders: Lib, Scripts, etc.
+├── app/                    # Main application code
+│   ├── __init__.py         # Marks this as a Python package
+│   ├── main.py             # FastAPI app and endpoints
+│   ├── data.py             # Likely handles DB or data logic
+│   ├── schema.sql          # SQL schema for stocks table
+│   ├── stocks.db           # SQLite database file
+│   └── __pycache__/        # Compiled Python files
+├── tests/                  # Unit tests and test databases
+│   ├── test_db.py          # Test logic (likely for DB or endpoints)
+│   ├── stocks.db           # Test DB (could be isolated)
+│   ├── test_stocks.db      # Possibly another test DB
+│   └── __pycache__/        # Compiled test files
+├── requirements.txt        # Dependency list
+
 # Install dependencies
 pip install -r requirements.txt
 
