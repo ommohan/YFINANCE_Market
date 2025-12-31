@@ -43,18 +43,37 @@ Response: [
 # Run Unit Test (for offline-safe with mocked yfinance)
 python -m unittest main.py
 
-
-
-
-
-
 ## Architecture Diagram
 
 ![Architecture Diagram](ArchitectureDiagram.png)
 
-+--------+     +-------------+     +-------------+
-| Client | --> | FastAPI App | --> | SQLite DB   |
-+--------+     +-------------+     +-------------+
-    ↑               ↑
-    |               |
-TestClient   yfinance (mocked)
+__Explanation of Decision and trade offs__
+# FAST API:- 
+Fast API for backend UI which provide visualize content to user provide lightweight service to TestClient with efficient and in simple manner.
+
+# SQLITE DataBase:-
+Lighetweight for file handling using this module which provides connection for our real time stock analysis not concurrent for large deployments
+
+# Mock External Calls:- 
+Allow user to avoid from internet connection beneficial for safer browsing and reproducibility.
+
+# Unittest and Pytest:- 
+Uses for simplicity and compaitible build in tool which provide python while pytest primarily giving flexiblity and unittest prvides minimal setup behaviour.
+
+# No Pagination and Filtering:-
+It Becomes may efficient for lage sacle businesses as because data grows,but it is acceptable for small prototype model
+
+****Assumptions And Instructions****
+
+**1)Hourly data is sufficient for analysis:-**  
+The app uses interval="1h" and period="1d" — suitable for demo purposes but not for high-frequency trading or long-term analysis.
+
+**2)No duplicate protection:-**  
+If /fetch is called multiple times for the same ticker and date, duplicate rows may be inserted. No deduplication logic is implemented.
+
+**3)No authentication or access control:-**  
+All endpoints are public. This is fine for local use but insecure for production.
+
+**4)No retry or caching for API calls :-** 
+If yfinance fails due to rate limits or network issues, the app returns an error. No fallback or retry mechanism is in place.
+
