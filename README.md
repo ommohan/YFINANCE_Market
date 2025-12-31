@@ -77,3 +77,16 @@ All endpoints are public. This is fine for local use but insecure for production
 **4)No retry or caching for API calls :-** 
 If yfinance fails due to rate limits or network issues, the app returns an error. No fallback or retry mechanism is in place.
 
+## Extension Q & A:-
+ 
+**How would this scale to handle 10 tickers concurrently?**
+Use asyncio.gather() or FastAPI in as a background tasks to fetch multiple tickers in parallel.For heavy workloads like **Celery** and **Redis** which manages concurrently safely
+
+**How would you avoid API rate limits?**
+Implenent cahce for current resulting and switches or rotate diffrent api keys against rate loss also if required then use safe proxy pool
+
+**What’s the first architectural change you'd make for production?**
+Replace SQLite with PostgreSQL for better concurrency and scalability,flexiblity. Add structured logging, error monitoring (e.g., Sentry), and deploy with Docker with Gunicorn or uvicorn for reverse proxy
+
+**What’s a trading-related pitfall of using this setup as-is?**
+The system lacks real-time guarantees — hourly data may be outdated for live trading. There's no validation, alerting, or protection against or missing data, which could lead to poor trading decisions.
