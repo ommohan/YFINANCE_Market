@@ -5,7 +5,7 @@ It uses FastAPI for serving endpoints, SQLite for local storage, and mocks yfina
 
 
 # Clone the repo
-git clone https://github.com/yourusername/YFINANCE_Market.git
+git clone https://github.com/ommohan/YFINANCE_Market.git
 cd YFINANCE_Market
 
 # Create virtual environment
