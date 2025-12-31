@@ -50,7 +50,7 @@ python -m unittest main.py
 
 ## Architecture Diagram
 
-![Architecture Diagram](docs/architecture.png)
+![Architecture Diagram](ArchitectureDiagram.png)
 
 +--------+     +-------------+     +-------------+
 | Client | --> | FastAPI App | --> | SQLite DB   |
