@@ -70,7 +70,7 @@ Lighetweight for file handling using this module which provides connection for o
 Allow user to avoid from internet connection beneficial for safer browsing and reproducibility.
 
 # Unittest and Pytest:- 
-Uses for simplicity and compaitible build in tool which provide python while pytest primarily giving flexiblity and unittest prvides minimal setup behaviour.
+Uses for simplicity and compaitible build in tool which provide python while pytest primarily giving flexiblity and unittest provides minimal setup behaviour.
 
 # No Pagination and Filtering:-
 It Becomes may efficient for lage sacle businesses as because data grows,but it is acceptable for small prototype model
